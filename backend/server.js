@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 
-const uploadRoutes = require("./controllers/Uploadcontrollers.js");
+const uploadRoutes = require("./controllers/Productcontrollers.js");
 const db = require("./models/product.js");
 const app = express();
 
