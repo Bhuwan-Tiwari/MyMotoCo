@@ -1,42 +1,98 @@
-/* Overall app container */
+/* Enable full-page scrolling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+}
+
+/* Ensures the outermost container takes full height */
 .app-container {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #007bff, #6610f2);
-    font-family: 'Arial', sans-serif;
-    color: white;
-    text-align: center;
-    
-    
+    padding: 20px;
 }
 
-/* Brand name styling */
-.app-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+/* Page Title */
+.title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Main content layout */
+.content-container {
+    display: flex;
+    flex-direction: row; /* Align children in a row */
+    gap: 20px; /* Space between components */
+    max-width: 1200px; /* Increase max-width to accommodate more components */
+    width: 100%;
+    justify-content: center; /* Center the components horizontally */
 }
 
 /* File Upload Section */
 .file-upload-container {
+    flex: 1; /* Allow flexible sizing */
+    min-width: 280px;
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 50%;
-    text-align: center;
-    color: black;
-    
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .file-upload-container {
-        width: 80%;
-    }
+/* Product Form Styling */
+.form-container {
+    flex: 1; /* Allow flexible sizing */
+    min-width: 320px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Product List Container */
+.product-list-container {
+    flex: 1; /* Allow flexible sizing */
+    min-width: 320px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Show All Button */
+.show-all-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* File Upload Container Adjustments */
+.file-upload-container h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.file-upload-container input,
+.file-upload-container button {
+    width: 90%;
+    margin: 5px 0;
+    padding: 5px;
 }

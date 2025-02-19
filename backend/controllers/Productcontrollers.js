@@ -92,6 +92,8 @@ router.post("/create", validateProduct, async (req, res) => {
     // Check if the SKU Code already exists in the database
     const existingProduct = await Product.findOne({ where: { sku_code } });
     if (existingProduct) {
+      console.log(`SKU Code ${sku_code} already exists.`);
+
       return res
         .status(400)
         .json({ error: `SKU Code ${sku_code} already exists.` });
@@ -113,6 +115,7 @@ router.post("/create", validateProduct, async (req, res) => {
     });
   } catch (error) {
     // Handle unexpected errors
+    console.log(error);
     return res
       .status(500)
       .json({ error: "Failed to create product.", details: error.message });
@@ -131,17 +134,24 @@ router.get("/products", async (req, res) => {
 
 // Delete Product(s) by SKU Code
 router.delete("/products", async (req, res) => {
+  console.log("Request Body:", req.body); // Log the entire request body
   const { sku_codes } = req.body;
-  console.log("sku_codes",sku_codes)
+  console.log("sku_codes:", sku_codes); // Log the sku_codes array
+
+  // Validate sku_codes
   if (!sku_codes || !Array.isArray(sku_codes) || sku_codes.length === 0) {
     return res
       .status(400)
       .json({ error: "Please provide at least one SKU code" });
   }
+
   try {
+    // Delete products with the provided SKU codes
     const deleted = await Product.destroy({
       where: { sku_code: sku_codes },
     });
+
+    // Check if any products were deleted
     if (deleted > 0) {
       res.json({ message: `Deleted ${deleted} product(s) successfully.` });
     } else {
@@ -150,6 +160,7 @@ router.delete("/products", async (req, res) => {
         .json({ message: "No products found with provided SKU code(s)" });
     }
   } catch (error) {
+    console.error("Error deleting products:", error); // Log the error
     res.status(500).json({ error: "Failed to delete product(s)" });
   }
 });

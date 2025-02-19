@@ -1,17 +1,17 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const bodyparser = require("body-parser");
-
-const uploadRoutes = require("./controllers/Productcontrollers.js");
+const bodyParser = require("body-parser");
+const ProductControllers = require("./controllers/Productcontrollers.js");
 const db = require("./models/product.js");
 const app = express();
 
 app.use(cors());
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // Enable JSON body parsing
+app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(express.json()); // Enable JSON body parsing
 
-app.use("/api", uploadRoutes);
+app.use("/api", ProductControllers);
 
 const PORT = process.env.PORT || 5000;
 

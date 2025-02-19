@@ -1,23 +1,42 @@
-import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import FileUpload from './components/FileUpload';
-import './styles/App.css';  // Import CSS file
-import ProductForm from './components/ProductForm'; // Import ProductForm
+import React, { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import FileUpload from "./components/FileUpload";
+import ProductForm from "./components/ProductForm";
+import ProductList from "./components/ProductList";
+import "./styles/App.css";
+const App = () => {
+  const [showProducts, setShowProducts] = useState(false);
 
-function App() {
-    return (
-        <div className="app-container">
-            <h1>MYMotoCo</h1>
-            <div className="file-upload-container">
-                <FileUpload />
-            </div>
-            <div className="product-form-container">
-                <ProductForm />  {/* Add ProductForm here */}
-            </div>
-            <ToastContainer position="top-right" autoClose={3000} />
+  return (
+    <div className="app-container">
+      <h1 className="title">MyMotoCo</h1>
+
+      <div className="content-container">
+        <div className="file-upload-container">
+          <FileUpload />
         </div>
-    );
-}
+
+        <div className="form-container">
+          <ProductForm />
+
+          <button
+            className="show-all-button"
+            onClick={() => setShowProducts(!showProducts)}
+          >
+            {showProducts ? "Hide Products" : "SHOW ALL"}
+          </button>
+        </div>
+      </div>
+
+      {showProducts && (
+        <div className="product-list-container">
+          <ProductList />
+        </div>
+      )}
+      <ToastContainer position="top-right" autoClose={3000} />
+    </div>
+  );
+};
 
 export default App;
