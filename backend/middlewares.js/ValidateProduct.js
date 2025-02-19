@@ -1,5 +1,5 @@
-// Middleware to validate product data
 const validateProduct = (req, res, next) => {
+    console.log('Request Body:', req.body); // Log the request body
     const { sku_code, product_name, product_description, price, hsn_code } = req.body;
     const errors = [];
 
@@ -8,14 +8,17 @@ const validateProduct = (req, res, next) => {
         errors.push('Missing required fields: SKU Code, Product Name, Price, and HSN Code are mandatory.');
     }
 
+    // Convert price to number for validation
+    const priceNumber = parseFloat(price);
+
     // Validate price (must be a number)
-    if (isNaN(price)) {
+    if (isNaN(priceNumber) || priceNumber <= 0) {
         errors.push('Price must be a valid number.');
     }
 
     // Validate HSN Code format (assuming a simple 8-digit format)
     const hsnRegex = /^[0-9]{8}$/;
-    if (!hsnRegex.test(hsn_code)) {
+    if (!hsnRegex.test(hsn_code?.toString() || '')) {
         errors.push('HSN Code must be a valid 8-digit number.');
     }
 
