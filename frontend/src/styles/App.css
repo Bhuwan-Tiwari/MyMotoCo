@@ -96,3 +96,39 @@ html, body {
     margin: 5px 0;
     padding: 5px;
 }
+/* Delete Products Container */
+.delete-products-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .delete-products-container h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .delete-products-container input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .delete-products-container button {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-products-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

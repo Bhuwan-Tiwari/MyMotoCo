@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import FileUpload from "./components/FileUpload";
 import ProductForm from "./components/ProductForm";
 import ProductList from "./components/ProductList";
+import DeleteProducts from "./components/DeleteProducts";
 import "./styles/App.css";
 const App = () => {
   const [showProducts, setShowProducts] = useState(false);
@@ -34,6 +35,7 @@ const App = () => {
           <ProductList />
         </div>
       )}
+      <DeleteProducts />
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
