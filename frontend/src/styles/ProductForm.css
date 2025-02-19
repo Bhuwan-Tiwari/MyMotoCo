@@ -1,0 +1,91 @@
+/* General form styling */
+.product-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 40px auto; /* This centers the form */
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title styling */
+.product-form h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Group styling for each input */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+.form-group label {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: inline-block;
+    color: #555;
+}
+
+/* Input and textarea fields styling */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Input focus and textarea focus styling */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Textarea specific styling */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Button styling */
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Validation error message styling */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Responsive Design: for screens smaller than 768px */
+@media (max-width: 768px) {
+    .product-form {
+        width: 90%; /* Adjusted width for smaller screens */
+    }
+}
